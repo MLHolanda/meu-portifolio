@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Mário Holanda</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #1e73be;
+            --primary-dark: #003c82;
+            --bg-color: #f0f4f8; /* Tom mais suave para quebrar o vazio */
+            --text-color: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #d0d7e6;
+            --shadow-color: rgba(0, 86, 179, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease;
+        }
+
+        /* O TRUQUE DO RODAPÉ: Força o corpo a ocupar 100% da altura da tela */
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.6; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column; /* Organiza topo, meio e fim como blocos verticais */
+        }
+
+        /* Header ocupando 100% da largura */
+        header { 
+            background: var(--primary-dark); 
+            color: #fff; 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a { 
+            color: rgba(255, 255, 255, 0.8); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover, nav a.active { 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        /* O Conteúdo Principal cresce para empurrar o rodapé para baixo */
+        main { 
+            flex: 1 0 auto; /* Faz o main ocupar todo o espaço restante da tela */
+            width: 100%;
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 3rem 20px; 
+        }
+
+        section { 
+            background: #fff; 
+            padding: 2.5rem; 
+            margin-bottom: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border: 1px solid rgba(0, 86, 179, 0.05);
+        }
+
+        section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--primary-color); 
+            color: #fff; 
+            padding: 0.7rem 1.8rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn:hover { 
+            background: var(--primary-dark); 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 60, 130, 0.4);
+        }
+
+        .grid { 
+            display: flex; 
+            gap: 24px; 
+            flex-wrap: wrap; 
+            margin-top: 2rem;
+        }
+
+        .card { 
+            background: #ffffff; 
+            padding: 1.8rem; 
+            border-radius: 10px; 
+            flex: 1; 
+            min-width: 280px;
+            border: 1.8px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 25px var(--shadow-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Rodapé fixado na base do ecrã */
+        footer { 
+            flex-shrink: 0; /* Impede o rodapé de encolher */
+            background: var(--primary-dark); 
+            color: rgba(255, 255, 255, 0.7); 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            width: 100%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
+            main { padding: 1.5rem 15px; }
+            section { padding: 1.5rem; }
+            .grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.jpeg" alt="Mário Holanda" class="logo-img" onerror="this.style.display='none'">
+            <h1>Mário Holanda</h1>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="https://marioholanda.blogspot.com/"target="_blank">Blog</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Bem-vindo ao meu espaço digital! 🚀</h2>
+            <p>Sou desenvolvedor de software e entusiasta de tecnologia. Este espaço reúne meus principais projetos, habilidades técnicas e as soluções web que venho construindo. Fique à vontade para explorar e conhecer mais sobre meu trabalho.</p>
+            <a href="sobre.html" class="btn">Saiba mais sobre mim</a>
+        </section>
+
+        <section>
+            <h2>Focos de Atuação</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fas fa-code"></i> Front-end</h3>
+                    <p>Criação de interfaces web modernas, dinâmicas e responsivas, prezando por acessibilidade e semântica no HTML e CSS.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-laptop-code"></i> Projetos</h3>
+                    <p>Desenvolvimento de aplicações e protótipos focados na experiência do usuário e na resolução de problemas reais.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Aprendizado</h3>
+                    <p>Estudo contínuo de novas tecnologias, metodologias de TI e boas práticas de arquitetura de código.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Criado por Mário Holanda &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

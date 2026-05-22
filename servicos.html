@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | Mário Holanda</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #1e73be;
+            --primary-dark: #003c82;
+            --bg-color: #f0f4f8;
+            --text-color: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #d0d7e6;
+            --shadow-color: rgba(0, 86, 179, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Footer */
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.6; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            background: var(--primary-dark); 
+            color: #fff; 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a { 
+            color: rgba(255, 255, 255, 0.8); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover, nav a.active { 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        /* Container Principal */
+        main { 
+            flex: 1 0 auto; 
+            width: 100%;
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 3rem 20px; 
+        }
+
+        .services-container { 
+            background: #fff; 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border: 1px solid rgba(0, 86, 179, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grid de Bloco de Serviços */
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .service-item { 
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1.8px solid var(--border-color);
+            background: #ffffff;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .service-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 15px var(--shadow-color);
+        }
+
+        .service-icon {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .service-info h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .service-info p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .cta-box {
+            margin-top: 2.5rem;
+            padding: 1.8rem;
+            background: var(--bg-color);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .cta-box p {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--primary-color); 
+            color: #fff; 
+            padding: 0.7rem 1.8rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn:hover { 
+            background: var(--primary-dark); 
+            transform: translateY(-2px);
+        }
+
+        footer { 
+            flex-shrink: 0; 
+            background: var(--primary-dark); 
+            color: rgba(255, 255, 255, 0.7); 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            width: 100%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
+            main { padding: 1.5rem 15px; }
+            .services-container { padding: 1.5rem; }
+            .service-item { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.jpeg" alt="Mário Holanda" class="logo-img" onerror="this.style.display='none'">
+            <h1>Mário Holanda</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html" class="active">Serviços</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="blog.html">Blog</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="services-container">
+            <h2>Soluções e Competências</h2>
+            
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="service-info">
+                        <h3>Desenvolvimento Web (Front-end)</h3>
+                        <p>Construção de sites modernos, responsivos e fáceis de navegar utilizando HTML5 semântico, CSS3 estruturado e JavaScript dinâmico. Desenvolvimento focado na correta renderização em qualquer dispositivo (desktops, tablets e celulares).</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="service-info">
+                        <h3>Landing Pages & Portfólios Estratégicos</h3>
+                        <p>Criação de páginas de captura de alta conversão para infoprodutos, catálogos de ofertas de afiliados ou portfólios pessoais de destaque. Interfaces projetadas sob medida com foco na usabilidade, organização visual clara e forte apelo de conversão.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-sliders-h"></i></div>
+                    <div class="service-info">
+                        <h3>Otimização de Interfaces e Refatoração</h3>
+                        <p>Análise e melhoria de códigos legados ou templates prontos. Aplicação de boas práticas de arquitetura de software, limpeza de estruturas redundantes, ajustes finos de layout em CSS e injeção de lógica interativa local para otimizar a experiência final do usuário.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <p>Precisa de um desenvolvedor dedicado para tirar a sua ideia do papel ou construir a sua vitrine web?</p>
+                <a href="contato.html" class="btn">Entre em contato agora</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Criado por Mário Holanda &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

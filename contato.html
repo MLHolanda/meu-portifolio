@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Mário Holanda</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #1e73be;
+            --primary-dark: #003c82;
+            --bg-color: #f0f4f8;
+            --text-color: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #d0d7e6;
+            --shadow-color: rgba(0, 86, 179, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Footer */
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.6; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            background: var(--primary-dark); 
+            color: #fff; 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a { 
+            color: rgba(255, 255, 255, 0.8); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover, nav a.active { 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        /* Área de conteúdo principal em duas colunas no desktop */
+        main { 
+            flex: 1 0 auto; 
+            width: 100%;
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 3rem 20px; 
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-section {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border: 1px solid rgba(0, 86, 179, 0.05);
+            flex: 1;
+            min-width: 320px;
+        }
+
+        h2, h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Formulário de Contato Inteligente */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.8px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-family);
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-light);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            margin-top: 0.5rem;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Bloco lateral das Redes Sociais Integradas */
+        .info-section {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border: 1px solid rgba(0, 86, 179, 0.05);
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .link-card:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px var(--primary-dark);
+        }
+
+        .link-card i {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        footer { 
+            flex-shrink: 0; 
+            background: var(--primary-dark); 
+            color: rgba(255, 255, 255, 0.7); 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            width: 100%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
+            main { padding: 1.5rem 15px; flex-direction: column; }
+            .contact-section, .info-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.jpeg" alt="Mário Holanda" class="logo-img" onerror="this.style.display='none'">
+            <h1>Mário Holanda</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="blog.html">Blog</a>
+                <a href="contato.html" class="active">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Fale Comigo</h2>
+            <form id="contactForm" novalidate>
+                <div>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome completo" required minlength="2" />
+                </div>
+
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
+                </div>
+
+                <div>
+                    <label for="subject">Assunto</label>
+                    <input type="text" id="subject" name="subject" placeholder="O motivo do contato" required />
+                </div>
+
+                <div>
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." required minlength="10"></textarea>
+                </div>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <section class="info-section">
+            <h3>Conexões Diretas</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Escolha a sua rede social favorita e entre em contato direto comigo agora mesmo:</p>
+            
+            <div class="links-container">
+                <a href="https://wa.me/5521998810422" target="_blank" class="link-card" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://instagram.com/mariolucasholanda" target="_blank" class="link-card" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/mario-holanda-91360420" target="_blank" class="link-card" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/MLHolanda" target="_blank" class="link-card" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:mariolucasholanda@gmail.com" target="_blank" class="link-card" rel="noopener noreferrer">
+                    <i class="fas fa-envelope"></i> E-mail
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Criado por Mário Holanda &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (!form.checkValidity()) {
+                alert('Por favor, preencha todos os campos corretamente antes de enviar.');
+                return;
+            }
+            alert('Mensagem enviada com sucesso! Obrigado pelo contato, Mário responderá em breve.');
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>

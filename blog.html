@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Mário Holanda</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #1e73be;
+            --primary-dark: #003c82;
+            --bg-color: #f0f4f8;
+            --text-color: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #d0d7e6;
+            --shadow-color: rgba(0, 86, 179, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Footer */
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.6; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            background: var(--primary-dark); 
+            color: #fff; 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a { 
+            color: rgba(255, 255, 255, 0.8); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover, nav a.active { 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        /* Container principal */
+        main { 
+            flex: 1 0 auto; 
+            width: 100%;
+            max-width: 900px; /* Um pouco mais estreito para facilitar a leitura de artigos */
+            margin: 0 auto;
+            padding: 3rem 20px; 
+        }
+
+        /* Container do Post em Destaque */
+        .post-container { 
+            background: #fff; 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border: 1px solid rgba(0, 86, 179, 0.05);
+        }
+
+        .post-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 1rem;
+        }
+
+        .post-header h2 {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .post-meta i {
+            color: var(--primary-light);
+        }
+
+        /* Conteúdo do artigo */
+        .post-content p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Citação estilizada em destaque */
+        .post-content blockquote {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .blog-footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-footer-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(-3px);
+        }
+
+        footer { 
+            flex-shrink: 0; 
+            background: var(--primary-dark); 
+            color: rgba(255, 255, 255, 0.7); 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            width: 100%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
+            main { padding: 1.5rem 15px; }
+            .post-container { padding: 1.5rem; }
+            .post-header h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.jpeg" alt="Mário Holanda" class="logo-img" onerror="this.style.display='none'">
+            <h1>Mário Holanda</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="post-container">
+            <div class="post-header">
+                <h2>Coragem nunca foi questão de músculos</h2>
+                <div class="post-meta">
+                    <span><i class="far fa-calendar-alt"></i> Artigo em Destaque</span>
+                    <span><i class="far fa-user"></i> Por Mário Holanda</span>
+                </div>
+            </div>
+            
+            <div class="post-content">
+                <p>Muitas vezes associamos a palavra "coragem" a atos heroicos físicos ou à força bruta. No entanto, no dia a dia e na nossa trajetória profissional e pessoal, a verdadeira coragem se manifesta de forma silenciosa, resiliente e mental.</p>
+                
+                <blockquote>
+                    "A coragem não é a ausência do medo, mas sim a capacidade de avançar e agir apesar dele."
+                </blockquote>
+
+                <p>Ter coragem significa encarar novos desafios profissionais, assumir riscos calculados para evoluir, ter a disciplina de aprender algo complexo do zero todos os dias e não se curvar diante das dificuldades técnicas ou dos obstáculos que surgem no caminho. É um músculo psicológico exercitado pela nossa mente e pela nossa força de vontade.</p>
+
+                <p>No desenvolvimento de software, por exemplo, coragem é desbravar uma nova linguagem de programação, refatorar um sistema antigo ou testar novas abordagens em busca de inovação. Não se trata de força mecânica, mas sim de atitude e firmeza de propósito.</p>
+                
+                <a href="https://marioholanda.blogspot.com/2024/08/opcoes-de-estilo-de-vida.html" target="_blank" class="blog-footer-link" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> Ler publicação original no meu Blogspot
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Criado por Mário Holanda &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

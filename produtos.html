@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos e Ofertas | Mário Holanda</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #1e73be;
+            --primary-dark: #003c82;
+            --bg-color: #f0f4f8;
+            --text-color: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #d0d7e6;
+            --shadow-color: rgba(0, 86, 179, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --accent-orange: #ff6b00;
+            --accent-orange-hover: #e55a00;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Footer */
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.6; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            background: var(--primary-dark); 
+            color: #fff; 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a { 
+            color: rgba(255, 255, 255, 0.8); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover, nav a.active { 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        /* Container Principal */
+        main { 
+            flex: 1 0 auto; 
+            width: 100%;
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 3rem 20px; 
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* Seção do Captura de Leads (Formulário) */
+        .lead-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 86, 179, 0.05);
+        }
+
+        .lead-container p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .lead-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border: 1.8px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .lead-form input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-light);
+        }
+
+        .lead-form button {
+            background-color: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.2);
+        }
+
+        .lead-form button:hover {
+            background-color: var(--accent-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Controles (Filtros e Ordenação) */
+        .controls-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .control-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .control-label {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .filter-btn, .sort-btn {
+            border: 1.5px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .filter-btn:hover, .sort-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .sort-btn {
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+        }
+
+        .sort-btn:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        /* Grid de Produtos */
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 24px; 
+            margin-bottom: 2.5rem;
+        }
+
+        .card { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            overflow: hidden;
+            border: 1.8px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 25px var(--shadow-color);
+        }
+
+        .card-img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; 
+            background: #ddd; 
+        }
+
+        .card-content { 
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .brand-badge { 
+            background: var(--bg-color); 
+            color: var(--primary-dark);
+            padding: 4px 10px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            display: inline-block; 
+            margin-bottom: 0.6rem;
+            align-self: flex-start;
+        }
+
+        .card-title { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .card-price { 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            color: var(--accent-orange); 
+            margin: 0.5rem 0; 
+        }
+
+        .click-counter { 
+            font-size: 0.8rem; 
+            color: var(--text-muted); 
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-link { 
+            display: block; 
+            background: var(--primary-color); 
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            margin-top: auto;
+        }
+
+        .btn-link:hover { 
+            background: var(--primary-dark); 
+        }
+
+        /* Painel de Estatísticas de Estudo */
+        .stats-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            border-left: 5px solid var(--primary-light);
+        }
+
+        .stats-container h3 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card { 
+            padding: 10px 20px; 
+            background: var(--bg-color); 
+            border-radius: 8px; 
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+        }
+
+        .stat-card span {
+            font-weight: 800;
+            color: var(--accent-orange);
+        }
+
+        footer { 
+            flex-shrink: 0; 
+            background: var(--primary-dark); 
+            color: rgba(255, 255, 255, 0.7); 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            width: 100%;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
+            main { padding: 1.5rem 15px; }
+            .controls-container { flex-direction: column; align-items: stretch; }
+            .lead-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="logo.jpeg" alt="Mário Holanda" class="logo-img" onerror="this.style.display='none'">
+            <h1>Mário Holanda</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="produtos.html" class="active">Produtos</a>
+                <a href="blog.html">Blog</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="section-title">Vitrine de Ofertas & Afiliados</h2>
+
+        <div class="lead-container">
+            <p><i class="fas fa-envelope-open-text"></i> Inscreva-se para receber alertas de cupons e promoções exclusivas diretamente no celular ou e-mail.</p>
+            <div class="lead-form">
+                <input type="email" id="emailLead" placeholder="Seu melhor e-mail" required>
+                <input type="text" id="whatsLead" placeholder="WhatsApp (opcional)">
+                <button id="saveLeadBtn">Receber Ofertas</button>
+            </div>
+            <div id="leadMessage" style="text-align:center; margin-top:1rem; font-weight: 600;"></div>
+        </div>
+
+        <div class="controls-container">
+            <div>
+                <span class="control-label"><i class="fas fa-filter"></i> Filtrar por Loja</span>
+                <div class="control-group">
+                    <button class="filter-btn active" data-brand="all">📦 Todos</button>
+                    <button class="filter-btn" data-brand="Shopee">🛍️ Shopee</button>
+                    <button class="filter-btn" data-brand="Magalu">📱 Magalu</button>
+                    <button class="filter-btn" data-brand="Amazon">🟠 Amazon</button>
+                </div>
+            </div>
+            <div>
+                <span class="control-label"><i class="fas fa-sort"></i> Ordenar Produtos</span>
+                <div class="control-group">
+                    <button class="sort-btn" data-sort="price-asc">Menor Preço</button>
+                    <button class="sort-btn" data-sort="price-desc">Maior Preço</button>
+                    <button class="sort-btn" data-sort="clicks">Mais Clicados</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="stats-container">
+            <h3><i class="fas fa-chart-bar"></i> Monitoramento do App (Estudo Técnico JavaScript)</h3>
+            <div class="stats-grid">
+                <div class="stat-card">Produtos Carregados: <span id="totalProdutos">0</span></div>
+                <div class="stat-card">Cliques Computados: <span id="totalClicks">0</span></div>
+                <div class="stat-card">Leads no LocalStorage: <span id="totalLeads">0</span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Criado por Mário Holanda &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let produtos = [
+            { id: 1, nome: "🧱 Sapateira Vertical", marca: "Shopee", preco_num: 155.99, preco_str: "R$ 155,99", imagem: "https://placehold.co/600x400?text=Sapateira", link: "https://s.shopee.com.br/1gEAS4yvOZ", clicks: 0 },
+            { id: 2, nome: "💡 Arandela de Parede Moderna", marca: "Shopee", preco_num: 34.19, preco_str: "R$ 34,19", imagem: "https://placehold.co/600x400?text=Arandela", link: "https://s.shopee.com.br/15wT4zFnq", clicks: 0 },
+            { id: 3, nome: "👕 Camiseta Brasil Hexa 2026", marca: "Shopee", preco_num: 54.95, preco_str: "R$ 54,95", imagem: "https://placehold.co/600x400?text=Camiseta", link: "https://s.shopee.com.br/7VBxOtJ2TY", clicks: 0 },
+            { id: 4, nome: "📱 Smartphone Moto G54", marca: "Magalu", preco_num: 899.90, preco_str: "R$ 899,90", imagem: "https://placehold.co/600x400?text=Moto+G54", link: "https://www.magazinevoce.com.br/magazinemariolucas/", clicks: 0 },
+            { id: 5, nome: "🎧 Fone Bluetooth JBL", marca: "Amazon", preco_num: 199.90, preco_str: "R$ 199,90", imagem: "https://placehold.co/600x400?text=Fone+JBL", link: "https://www.amazon.com.br", clicks: 0 },
+            { id: 6, nome: "⌚ Smartwatch Xiaomi", marca: "Amazon", preco_num: 249.99, preco_str: "R$ 249,99", imagem: "https://placehold.co/600x400?text=Smartwatch", link: "https://www.amazon.com.br", clicks: 0 }
+        ];
+
+        let currentFilter = "all";
+        let currentSort = "none";
+        
+        function loadClicksFromStorage() {
+            const savedClicks = localStorage.getItem("produto_clicks");
+            if (savedClicks) {
+                const clicksMap = JSON.parse(savedClicks);
+                produtos.forEach(prod => {
+                    if (clicksMap[prod.id]) prod.clicks = clicksMap[prod.id];
+                });
+            }
+        }
+        
+        function saveClicksToStorage() {
+            const clicksMap = {};
+            produtos.forEach(prod => { clicksMap[prod.id] = prod.clicks; });
+            localStorage.setItem("produto_clicks", JSON.stringify(clicksMap));
+        }
+        
+        function loadLeadsCount() {
+            const leads = JSON.parse(localStorage.getItem("leads_afiliado") || "[]");
+            document.getElementById("totalLeads").innerText = leads.length;
+            return leads;
+        }
+        
+        function saveLead(email, whatsapp) {
+            if (!email || email.trim() === "") {
+                const msg = document.getElementById("leadMessage");
+                msg.style.color = "red";
+                msg.innerHTML = "⚠️ E-mail obrigatório!";
+                setTimeout(() => msg.innerHTML = "", 3000);
+                return false;
+            }
+            const leads = JSON.parse(localStorage.getItem("leads_afiliado") || "[]");
+            leads.push({ email, whatsapp, data: new Date().toISOString() });
+            localStorage.setItem("leads_afiliado", JSON.stringify(leads));
+            
+            const msg = document.getElementById("leadMessage");
+            msg.style.color = "green";
+            msg.innerHTML = "✅ Dados salvos com sucesso no localStorage!";
+            
+            setTimeout(() => msg.innerHTML = "", 3000);
+            document.getElementById("emailLead").value = "";
+            document.getElementById("whatsLead").value = "";
+            document.getElementById("totalLeads").innerText = leads.length;
+            return true;
+        }
+        
+        function getProdutosFiltradosEOrdenados() {
+            let filtered = [...produtos];
+            if (currentFilter !== "all") {
+                filtered = filtered.filter(p => p.marca === currentFilter);
+            }
+            
+            if (currentSort === "price-asc") {
+                filtered.sort((a,b) => a.preco_num - b.preco_num);
+            } else if (currentSort === "price-desc") {
+                filtered.sort((a,b) => b.preco_num - a.preco_num);
+            } else if (currentSort === "clicks") {
+                filtered.sort((a,b) => b.clicks - a.clicks);
+            }
+            return filtered;
+        }
+        
+        function renderProducts() {
+            const produtosExibir = getProdutosFiltradosEOrdenados();
+            const grid = document.getElementById("productsGrid");
+            
+            if (produtosExibir.length === 0) {
+                grid.innerHTML = "<div style='grid-column:1/-1; text-align:center; padding: 2rem; color: var(--text-muted); font-weight: 600;'>Nenhum produto encontrado para este filtro.</div>";
+            } else {
+                grid.innerHTML = produtosExibir.map(prod => `
+                    <div class="card" data-id="${prod.id}">
+                        <img class="card-img" src="${prod.imagem}" alt="${prod.nome}" loading="lazy">
+                        <div class="card-content">
+                            <span class="brand-badge">${prod.marca}</span>
+                            <div class="card-title">${prod.nome}</div>
+                            <div class="card-price">${prod.preco_str}</div>
+                            <div class="click-counter"><i class="far fa-hand-pointer"></i> Cliques: ${prod.clicks}</div>
+                            <a href="${prod.link}" target="_blank" rel="noopener noreferrer" class="btn-link link-produto" data-id="${prod.id}">Ver Oferta →</a>
+                        </div>
+                    </div>
+                `).join("");
+            }
+            
+            document.getElementById("totalProdutos").innerText = produtosExibir.length;
+            atualizarTotalClicks();
+            
+            document.querySelectorAll(".link-produto").forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const id = parseInt(link.getAttribute("data-id"));
+                    const produto = produtos.find(p => p.id === id);
+                    if (produto) {
+                        produto.clicks += 1;
+                        saveClicksToStorage();
+                        renderProducts();
+                    }
+                });
+            });
+        }
+        
+        function atualizarTotalClicks() {
+            const total = produtos.reduce((acc, p) => acc + p.clicks, 0);
+            document.getElementById("totalClicks").innerText = total;
+        }
+        
+        function setupFiltersAndSort() {
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    currentFilter = btn.getAttribute("data-brand");
+                    renderProducts();
+                });
+            });
+            
+            document.querySelectorAll(".sort-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    currentSort = btn.getAttribute("data-sort");
+                    renderProducts();
+                });
+            });
+        }
+        
+        function init() {
+            loadClicksFromStorage();
+            loadLeadsCount();
+            renderProducts();
+            setupFiltersAndSort();
+            
+            document.getElementById("saveLeadBtn").addEventListener("click", () => {
+                const email = document.getElementById("emailLead").value;
+                const whats = document.getElementById("whatsLead").value;
+                saveLead(email, whats);
+            });
+        }
+        
+        init();
+    </script>
+</body>
+</html>
