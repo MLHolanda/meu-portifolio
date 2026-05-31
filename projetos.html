@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Mário Holanda</title>
+    <title>Projetos | Mário Holanda</title>
     <link 
       rel="stylesheet" 
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
@@ -108,13 +108,12 @@
         main { 
             flex: 1 0 auto; 
             width: 100%;
-            max-width: 900px; /* Um pouco mais estreito para facilitar a leitura de artigos */
+            max-width: 1100px; 
             margin: 0 auto;
             padding: 3rem 20px; 
         }
 
-        /* Container do Post em Destaque */
-        .post-container { 
+        .about-container { 
             background: #fff; 
             padding: 2.5rem; 
             border-radius: 12px; 
@@ -122,65 +121,48 @@
             border: 1px solid rgba(0, 86, 179, 0.05);
         }
 
-        .post-header {
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 1rem;
-        }
-
-        .post-header h2 {
+        h2 {
             color: var(--primary-dark);
-            font-size: 2.2rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
-        }
-
-        .post-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .post-meta i {
-            color: var(--primary-light);
-        }
-
-        /* Conteúdo do artigo */
-        .post-content p {
-            font-size: 1.1rem;
-            color: var(--text-color);
             margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+
+        p {
+            color: var(--text-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
             text-align: justify;
         }
 
-        /* Citação estilizada em destaque */
-        .post-content blockquote {
-            background-color: var(--bg-color);
-            border-left: 5px solid var(--primary-color);
-            padding: 1.2rem 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--primary-dark);
-            border-radius: 0 8px 8px 0;
+        /* Lista de Habilidades/Valores customizada */
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
         }
 
-        .blog-footer-link {
-            display: inline-flex;
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 2rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
+            gap: 12px;
+            color: var(--text-muted);
         }
 
-        .blog-footer-link:hover {
-            color: var(--primary-dark);
-            transform: translateX(-3px);
+        li i {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            width: 20px;
         }
 
         footer { 
@@ -194,12 +176,17 @@
             border-top: 3px solid var(--primary-light);
         }
 
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             header h1 { font-size: 1.7rem; }
             nav a { margin: 5px; padding: 5px 10px; font-size: 0.9rem; }
             main { padding: 1.5rem 15px; }
-            .post-container { padding: 1.5rem; }
-            .post-header h2 { font-size: 1.7rem; }
+            .about-container { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -215,42 +202,82 @@
                 compartilhamento de conhecimento.
             </p>
             <nav>
-                <a href="index.html">Home</a>
+                <a href="index.html" >Home</a>
                 <a href="sobre.html">Sobre</a>
+                <a href="projetos.html"class="active">Projetos</a>
                 <a href="servicos.html">Serviços</a>
                 <a href="produtos.html">Produtos</a>
-                <a href="blog.html"class="active">Blog</a>
+                <a href="https://marioholanda.blogspot.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Blog
+                </a>
                 <a href="contato.html">Contato</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <article class="post-container">
-            <div class="post-header">
-                <h2>Coragem nunca foi questão de músculos</h2>
-                <div class="post-meta">
-                    <span><i class="far fa-calendar-alt"></i> Artigo em Destaque</span>
-                    <span><i class="far fa-user"></i> Por Mário Holanda</span>
-                </div>
-            </div>
+        <div class="about-container">
+            <h2>Projetos</h2>
+            <p>Esta página reúne alguns dos projetos que venho desenvolvendo como parte da minha jornada de aprendizado e evolução na área de tecnologia. Cada projeto representa uma oportunidade de aplicar conhecimentos, experimentar novas soluções e transformar ideias em aplicações práticas.
+
+                Mais do que resultados finais, estes projetos refletem um processo contínuo de estudo, prática e aperfeiçoamento.
+            </p>
             
-            <div class="post-content">
-                <p>Muitas vezes associamos a palavra "coragem" a atos heroicos físicos ou à força bruta. No entanto, no dia a dia e na nossa trajetória profissional e pessoal, a verdadeira coragem se manifesta de forma silenciosa, resiliente e mental.</p>
-                
-                <blockquote>
-                    "A coragem não é a ausência do medo, mas sim a capacidade de avançar e agir apesar dele."
-                </blockquote>
-
-                <p>Ter coragem significa encarar novos desafios profissionais, assumir riscos calculados para evoluir, ter a disciplina de aprender algo complexo do zero todos os dias e não se curvar diante das dificuldades técnicas ou dos obstáculos que surgem no caminho. É um músculo psicológico exercitado pela nossa mente e pela nossa força de vontade.</p>
-
-                <p>No desenvolvimento de software, por exemplo, coragem é desbravar uma nova linguagem de programação, refatorar um sistema antigo ou testar novas abordagens em busca de inovação. Não se trata de força mecânica, mas sim de atitude e firmeza de propósito.</p>
-                
-                <a href="https://marioholanda.blogspot.com/2024/08/opcoes-de-estilo-de-vida.html" target="_blank" class="blog-footer-link" rel="noopener noreferrer">
-                    <i class="fas fa-external-link-alt"></i> Ler publicação original no meu Blogspot
+            <h3>Sorteio Só Vitória</h3>
+            <p>Aplicação web desenvolvida para realizar sorteios de forma simples e intuitiva. O projeto foi criado com foco no aprendizado de desenvolvimento Front-end, organização de componentes e experiência do usuário.
+            </p>
+            <p>Tecnologias utilizadas:
+            HTML, CSS, JavaScript, React, Git e GitHub.
+            </p>
+            <p>
+                <a href="https://sorteio-so-vitoria.vercel.app/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   Acessar Projeto
                 </a>
-            </div>
-        </article>
+            </p>
+
+            <h3>Trisol</h3>
+
+            <p>
+                Projeto desenvolvido a partir de uma necessidade real apresentada por uma empresa parceira.
+                Durante um período de colaboração, participei da elaboração e organização de informações
+                utilizadas em um relatório técnico, aplicando conceitos de pesquisa, estruturação de conteúdo
+                e apresentação de dados.
+            </p>
+            <p>    
+                Além da experiência prática, o projeto representou uma oportunidade de transformar 
+                conhecimento em uma solução útil para atender uma demanda concreta.
+
+            </p>
+            <p>
+                Este projeto também marcou uma importante experiência prática,
+                permitindo aplicar conhecimentos adquiridos em estudos e transformá-los
+                em uma entrega real.
+            </p>
+            <h3>Próximos Projetos</h3>
+            <p>
+                Novos projetos estão em desenvolvimento e serão adicionados a esta página à medida que 
+                evoluírem. Esta seção acompanhará minha jornada de aprendizado, experimentação e 
+                construção de soluções digitais.
+
+            </p>
+            <h3>Artigos e Reflexões</h3>
+
+            <p>
+                Além dos projetos, compartilho experiências,
+                aprendizados e reflexões no meu blog.
+            </p>
+            <p>
+                <a href="https://marioholanda.blogspot.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   Visitar Blog
+                </a>
+            </p>
+        </div>
     </main>
 
     <footer>
