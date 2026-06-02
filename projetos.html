@@ -86,6 +86,13 @@
             text-align: center;
         }
 
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
         nav {
             margin-top: 10px;
         }
@@ -119,6 +126,45 @@
             border-radius: 12px; 
             box-shadow: 0 10px 25px var(--shadow-color);
             border: 1px solid rgba(0, 86, 179, 0.05);
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 10px;
+        }   
+
+        .project-link:hover {
+            background: var(--primary-dark);
+        }
+
+        .tech-stack span {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
         }
 
         h2 {
@@ -225,38 +271,60 @@
                 Mais do que resultados finais, estes projetos refletem um processo contínuo de estudo, prática e aperfeiçoamento.
             </p>
             
-            <h3>Sorteio Só Vitória</h3>
-            <p>Aplicação web desenvolvida para realizar sorteios de forma simples e intuitiva. O projeto foi criado com foco no aprendizado de desenvolvimento Front-end, organização de componentes e experiência do usuário.
-            </p>
-            <p>Tecnologias utilizadas:
-            HTML, CSS, JavaScript, React, Git e GitHub.
-            </p>
-            <p>
-                <a href="https://sorteio-so-vitoria.vercel.app/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                   Acessar Projeto
-                </a>
-            </p>
+            <div class="project-card">
 
-            <h3>Trisol</h3>
+                <h3>Sorteio Só Vitória</h3>
+            
+                <p>
+                    Aplicação web desenvolvida para realizar sorteios de forma simples e intuitiva.
+                    O projeto foi criado com foco no aprendizado de desenvolvimento Front-end,
+                    organização de componentes e experiência do usuário.
+                </p>
+            
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>Git</span>
+                    <span>GitHub</span>
+                </div>
+            
+                <p>
+                 <a href="https://sorteio-so-vitoria.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link">
+                    <i class="fas fa-external-link-alt"></i>
+                    Acessar Projeto
+                 </a>
+                </p>
+            
+            </div>
+            <div class="project-card">
 
-            <p>
-                Projeto desenvolvido a partir de uma necessidade real apresentada por uma empresa parceira.
-                Durante um período de colaboração, participei da elaboração e organização de informações
-                utilizadas em um relatório técnico, aplicando conceitos de pesquisa, estruturação de conteúdo
-                e apresentação de dados.
-            </p>
-            <p>    
-                Além da experiência prática, o projeto representou uma oportunidade de transformar 
-                conhecimento em uma solução útil para atender uma demanda concreta.
+                <h3>Trisol</h3>
+            
+                <p>
+                    Projeto desenvolvido a partir de uma necessidade real apresentada por uma empresa parceira.
+                    Durante um período de colaboração, participei da elaboração e organização de informações
+                    utilizadas em um relatório técnico, aplicando conceitos de pesquisa, estruturação de conteúdo
+                    e apresentação de dados.
+                </p>
+            
+                <p>
+                    Além da experiência prática, o projeto representou uma oportunidade de transformar
+                    conhecimento em uma solução útil para atender uma demanda concreta.
+                </p>
 
-            </p>
-            <p>
-                Este projeto também marcou uma importante experiência prática,
-                permitindo aplicar conhecimentos adquiridos em estudos e transformá-los
-                em uma entrega real.
-            </p>
+                <div class="tech-stack">
+                    <span>Pesquisa</span>
+                    <span>Organização</span>
+                    <span>Relatórios</span>
+                    <span>Documentação</span>
+                </div>
+            
+            </div>
             <h3>Próximos Projetos</h3>
             <p>
                 Novos projetos estão em desenvolvimento e serão adicionados a esta página à medida que 
