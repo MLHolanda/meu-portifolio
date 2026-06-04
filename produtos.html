@@ -298,6 +298,13 @@
             color: var(--text-color);
         }
 
+        .card-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
         .card-price { 
             font-size: 1.4rem; 
             font-weight: 800; 
@@ -476,9 +483,9 @@
 
     <script>
         let produtos = [
-            { id: 1, nome: "🧱 Sapateira Vertical", marca: "Shopee", preco_num: 155.99, preco_str: "R$ 155,99", imagem: "https://placehold.co/600x400?text=Sapateira", link: "https://s.shopee.com.br/1gEAS4yvOZ", clicks: 0 },
-            { id: 2, nome: "💡 Arandela de Parede Moderna", marca: "Shopee", preco_num: 34.19, preco_str: "R$ 34,19", imagem: "https://placehold.co/600x400?text=Arandela", link: "https://s.shopee.com.br/15wT4zFnq", clicks: 0 },
-            { id: 3, nome: "👕 Camiseta Brasil Hexa 2026", marca: "Shopee", preco_num: 54.95, preco_str: "R$ 54,95", imagem: "https://placehold.co/600x400?text=Camiseta", link: "https://s.shopee.com.br/7VBxOtJ2TY", clicks: 0 },
+            { id: 1, nome: "🧱 Sapateira Vertical", marca: "Shopee", preco_num: 155.99, preco_str: "R$ 155,99", imagem: "https://placehold.co/600x400?text=Sapateira", link: "https://s.shopee.com.br/1gEAS4yvOZ", descricao: "Organize seus calçados de forma prática e aproveite melhor o espaço da sua casa.", clicks: 0 },
+            { id: 2, nome: "💡 Arandela de Parede Moderna", marca: "Shopee", preco_num: 34.19, preco_str: "R$ 34,19", imagem: "https://placehold.co/600x400?text=Arandela", link: "https://s.shopee.com.br/15wT4zFnq", descricao: "Uma opção elegante para valorizar ambientes internos e criar uma iluminação mais aconchegante.", clicks: 0 },
+            { id: 3, nome: "👕 Camiseta Brasil Hexa 2026", marca: "Shopee", preco_num: 54.95, preco_str: "R$ 54,95", imagem: "https://placehold.co/600x400?text=Camiseta", link: "https://s.shopee.com.br/7VBxOtJ2TY", descricao: "Ideal para torcedores que gostam de demonstrar sua paixão pela seleção brasileira.",clicks: 0 },
             { id: 4, nome: "📱 Smartphone Moto G54", marca: "Magalu", preco_num: 899.90, preco_str: "R$ 899,90", imagem: "https://placehold.co/600x400?text=Moto+G54", link: "https://www.magazinevoce.com.br/magazinemariolucas/", clicks: 0 },
             { id: 5, nome: "🎧 Fone Bluetooth JBL", marca: "Amazon", preco_num: 199.90, preco_str: "R$ 199,90", imagem: "https://placehold.co/600x400?text=Fone+JBL", link: "https://www.amazon.com.br", clicks: 0 },
             { id: 6, nome: "⌚ Smartwatch Xiaomi", marca: "Amazon", preco_num: 249.99, preco_str: "R$ 249,99", imagem: "https://placehold.co/600x400?text=Smartwatch", link: "https://www.amazon.com.br", clicks: 0 }
@@ -561,6 +568,7 @@
                         <div class="card-content">
                             <span class="brand-badge">${prod.marca}</span>
                             <div class="card-title">${prod.nome}</div>
+                            <div class="card-description">${prod.descricao || ""}</div>
                             <div class="card-price">${prod.preco_str}</div>
                             <div class="click-counter"><i class="far fa-hand-pointer"></i> Cliques: ${prod.clicks}</div>
                             <a href="${prod.link}" target="_blank" rel="noopener noreferrer" class="btn-link link-produto" data-id="${prod.id}">Ver Oferta →</a>
