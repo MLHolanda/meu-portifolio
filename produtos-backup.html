@@ -515,60 +515,28 @@
             return leads;
         }
         
-        async function saveLead(email, whatsapp) {
-
+        function saveLead(email, whatsapp) {
             if (!email || email.trim() === "") {
-
                 const msg = document.getElementById("leadMessage");
-
                 msg.style.color = "red";
                 msg.innerHTML = "⚠️ E-mail obrigatório!";
-
                 setTimeout(() => msg.innerHTML = "", 3000);
-
                 return false;
             }
-
-            try {
-
-                const resposta = await fetch("https://script.google.com/macros/s/AKfycbyeCP3fknwHjHbKU5KJM4Sus_3G8nWr0cleheRhH04synzmjZ5rlAlKVbRlN2N-27hx/exec", {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "text/plain"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    whatsapp: whatsapp
-                })
-            });
-
-                const msg = document.getElementById("leadMessage");
-
-                msg.style.color = "green";
-                msg.innerHTML = "✅ Cadastro enviado com sucesso!";
-
-                document.getElementById("emailLead").value = "";
-                document.getElementById("whatsLead").value = "";
-
-                setTimeout(() => msg.innerHTML = "", 3000);
-
-                return true;
-
-            } catch (erro) {
-
-                const msg = document.getElementById("leadMessage");
-
-                msg.style.color = "red";
-                msg.innerHTML = "❌ Erro ao enviar cadastro.";
-
-                setTimeout(() => msg.innerHTML = "", 3000);
-
-                console.error(erro);
-
-                return false;
-            }
-            }
+            const leads = JSON.parse(localStorage.getItem("leads_afiliado") || "[]");
+            leads.push({ email, whatsapp, data: new Date().toISOString() });
+            localStorage.setItem("leads_afiliado", JSON.stringify(leads));
+            
+            const msg = document.getElementById("leadMessage");
+            msg.style.color = "green";
+            msg.innerHTML = "✅ Dados salvos com sucesso no localStorage!";
+            
+            setTimeout(() => msg.innerHTML = "", 3000);
+            document.getElementById("emailLead").value = "";
+            document.getElementById("whatsLead").value = "";
+            document.getElementById("totalLeads").innerText = leads.length;
+            return true;
+        }
         
         function getProdutosFiltradosEOrdenados() {
             let filtered = [...produtos];
