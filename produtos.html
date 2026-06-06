@@ -518,6 +518,7 @@
         async function saveLead(email, whatsapp) {
 
             if (!email || email.trim() === "") {
+                
 
                 const msg = document.getElementById("leadMessage");
 
@@ -527,7 +528,34 @@
                 setTimeout(() => msg.innerHTML = "", 3000);
 
                 return false;
-            }
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailRegex.test(email)) {
+
+                const msg = document.getElementById("leadMessage");
+
+                msg.style.color = "red";
+                msg.innerHTML = "⚠️ Por favor, informe um e-mail válido.";
+
+                setTimeout(() => msg.innerHTML = "", 3000);
+
+                return false;
+                }
+                const telefoneLimpo = whatsapp.replace(/\D/g, "");
+
+                if (whatsapp.trim() !== "" && telefoneLimpo.length !== 11) {
+
+                    const msg = document.getElementById("leadMessage");
+
+                    msg.style.color = "red";
+                    msg.innerHTML = "⚠️ Por favor, informe um WhatsApp válido.";
+
+                    setTimeout(() => msg.innerHTML = "", 3000);
+
+                    return false;
+                }
 
             try {
 
